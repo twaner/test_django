@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, include, url
-from booksite.views import hello, current_datetime, hours_ahead
+from booksite.views import hello, current_datetime, hours_ahead,display_meta
 from django.contrib import admin
+from books import views as bviews
+from contact import views as cviews
 admin.autodiscover()
 
 # Uncomment the next two lines to enable the admin:
@@ -13,6 +15,10 @@ urlpatterns = patterns('',
 	url(r'^another-time-page/$', current_datetime),
 	url(r'^time/plus/(\d{1,2})/$', hours_ahead),
 	url(r'^admin/', include(admin.site.urls)),
+	url(r'^display-meta/',display_meta), 
+	url(r'^search-form/$', bviews.search_form),
+	url(r'^search/$', bviews.search),
+	url(r'^contact-form/$', cviews.contact),
 	
     # Examples:
     # url(r'^$', 'booksite.views.home', name='home'),

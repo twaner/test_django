@@ -110,6 +110,9 @@ WSGI_APPLICATION = 'booksite.wsgi.application'
 
 TEMPLATE_DIRS = (
 	'/Users/taiowawaner/Documents/test_django/booksite/templates',
+	'/Users/taiowawaner/Documents/test_django/booksite/templates/search',
+	'/Users/taiowawaner/Documents/test_django/booksite/templates/time',
+	'/Users/taiowawaner/Documents/test_django/booksite/templates/contact',
 	# dynamic paths
 	# os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
