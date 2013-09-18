@@ -6,23 +6,9 @@ import datetime
 def hello(request):
     return HttpResponse("Hello world")
 
-""""def current_datetime(request):
+def current_datetime(request):
     now = datetime.datetime.now()
-    t = get_template('current_datetime.html')
-    html = t.render(Context({'current_date': now}))
-    return HttpResponse(html)
-    
-def current_datetime(request):
-	def current_datetime(request):
-    		now = datetime.datetime.now()
-   		return(render(request,'time/current_datetime.html',{'current_date': now}))
-   		"""
-   		
-def current_datetime(request):
-	def current_datetime(request):
-    		now = datetime.datetime.now()
-    		return render(request, 'time/current_datetime.html', {'current_date': now})
-
+    return render(request, 'current_datetime.html', {'current_date': now})
 
 def hours_ahead(request, offset):
 	try:
@@ -31,10 +17,9 @@ def hours_ahead(request, offset):
 		raise Http404()
 	dt = datetime.datetime.now() + \
 	 datetime.timedelta(hours=offset)
-	html = "<html><body>In %s hours(s), it will be %s.</body> \
-	</html>" % (offset, dt)
-	return HttpResponse(html)
-
+	return render(request,'time/hours_ahead.html',
+	{'hours': offset, 'time': dt})
+	
 def display_meta(request):
     values = request.META.items()
     values.sort()

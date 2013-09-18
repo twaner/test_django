@@ -1,0 +1,18 @@
+import datetime
+
+class CurrentTimeNode(template.Node):
+	def __init__(self, format_string):
+		self.format_string =  str(format_string)
+		
+	def render(self, context):
+		now = datetime.datetime.now()
+		return now.strftime(self.format_string)
+		
+class CurrentTimeNode2(template.Node):
+	def __init__(self,format_string):
+		self.format_string = str(format_string)
+		
+	def render(self, context	):
+		now = current_time.datetime.now()
+		context['current_time'] = now.strftime(self.format_string)
+		return('')
