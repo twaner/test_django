@@ -1,0 +1,9 @@
+from django import template
+
+register = template.Library()
+
+def books_for_author(author):
+	books = Books.objects.filter(authors_id=author.id)
+	return({'books': books})
+	
+register.inclusion_tag('book_snippet.html')(books_for_author)

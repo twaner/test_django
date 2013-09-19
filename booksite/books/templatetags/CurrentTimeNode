@@ -16,3 +16,12 @@ class CurrentTimeNode2(template.Node):
 		now = current_time.datetime.now()
 		context['current_time'] = now.strftime(self.format_string)
 		return('')
+		
+Class CurrentTimeNode3(template.Node):
+	def __init__(self, format_string, var_name):
+		self.format_string = str(format_string)
+		self.var_name = var_name
+		
+		def render(self, context):
+			now = datetime.datetime.now()
+			return('')
