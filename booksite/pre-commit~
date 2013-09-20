@@ -16,6 +16,6 @@ mysqldump -u $DBUSER -p$DBPASS $DB > $NEWDB
 cp -R  $MYSQLREPOSITORY/$NEWDB.sql $GITREPOSITORY/
 
 #GIT IT
-git add $GITREPOSITORY/$NEWDB.sql
+#git add $GITREPOSITORY/$NEWDB.sql
 exit 0
 
