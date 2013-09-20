@@ -1,0 +1,11 @@
+#!/bin/bash
+DBUSER="root"
+DBPASS=""
+DB="testdjango"
+SCHMEAPATH="/Users/taiowawaner/Documents/test_django/booksite"
+export PATH=${PATH}:/usr/local/mysql/bin
+
+mysqldump -u $DBUSER -p$DBPASS $DB > $SCHEMAPATH.sql
+#git add $SCHEMAPATH/$DB.sql
+exit 0
+
