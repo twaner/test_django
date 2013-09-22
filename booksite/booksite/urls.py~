@@ -1,6 +1,13 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 from django.contrib import admin
+#from django.views.generic.list import ListView
+from django.views.generic import ListView, DetailView, TemplateView
+from books.views import PublisherPageListView, books_by_publisher, \
+BookByPublisherListView, BookListView
 admin.autodiscover()
+
+#models
+from books.models import Publisher
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -18,10 +25,43 @@ urlpatterns = patterns('booksite.views',
 urlpatterns += patterns('books.views', 
 	url(r'^search-form/$', 'search_form'),
 	url(r'^search/$', 'search'),
+	url(r'^about/$', TemplateView.as_view(template_name='about.html')),
+	url(r'^about/(\w+)/$', 'about_pages'),
 )
+
 urlpatterns += patterns('contact.views',
 	url(r'^contact-form/$', 'contact'),
 )
+
+publisher_info= {
+	'queryset': Publisher.objects.all(),
+	'template_name': 'publisher_list.html',
+	'template_object_name': 'publisher'
+}
+
+def get_books():
+	return Book.objects.all()
+
+publisher_info1= {
+	'queryset': Publisher.objects.all(),
+	'template_object_name': 'publisher',
+	'extra_context': {'book_list': get_books}
+}
+
+urlpatterns += patterns('books.views', 
+	url(r'^publishers1/$', ListView.as_view(),publisher_info),
+	#url(r'^publishers3/$', ListView.as_view(publisher_info,)),
+	url(r'^publishers/$', ListView.as_view(model=Publisher,)),
+	url(r'^publishers2/$', ListView.as_view(
+		queryset = Publisher.objects.all(),
+		template_name = 'publisher_list.html')),
+	url(r'^publishers4/$',PublisherPageListView.as_view(
+		template_name='publisher_list.html')),
+	url(r'^books/(\w+)/$', books_by_publisher),
+	url(r'^books1/(\w+)/$', BookByPublisherListView.as_view(), name='books_by_publisher.html'),
+	url(r'^books3/$', BookListView.as_view()),
+)
+
 		
     # Examples:
     # url(r'^$', 'booksite.views.home', name='home'),

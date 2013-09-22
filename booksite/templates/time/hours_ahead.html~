@@ -1,3 +1,11 @@
-<html>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Future time{% endblock %}
+
+{% block content %}
+#<p>In {{ hour_offset }} hour(s), it will be {{ next_time }}.</p>
+<p>In {{ hours }} hour(s), it will be {{ time }}.</p>
+{% endblock %}
 	
+	
+
