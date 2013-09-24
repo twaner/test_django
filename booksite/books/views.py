@@ -25,7 +25,6 @@ def search(request):
 		
 def about_pages(request, page):
 	try:
-		#
 		return(render(request,"about/%s.html" %page))
 	except TemplateDoesNotExist:
 		raise(Http404())

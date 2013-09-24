@@ -28,6 +28,9 @@ def display_meta(request):
         html.append('<tr><td>%s</td><td>%s</td></tr>' % (k, v))
     return HttpResponse('<table>%s</table>' % '\n'.join(html))
     
+def my_image(request):
+	image_data = open("/Users/taiowawaner/Documents/test_django/booksite/images", "test").read()
+	return(HttpResponse(image_data, mimetype="image/png"))
 # GOOD (VERSION 1)
 def ua_display_good1(request):
     try:

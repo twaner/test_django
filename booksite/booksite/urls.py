@@ -21,6 +21,7 @@ urlpatterns = patterns('booksite.views',
 	url(r'^hours/plus/(?P<offset>\d{1,2})/$', 'hours_ahead'),
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^display-meta/','display_meta'),
+	url(r'^image/', 'my_image')
 )
 urlpatterns += patterns('books.views', 
 	url(r'^search-form/$', 'search_form'),
@@ -50,7 +51,6 @@ publisher_info1= {
 
 urlpatterns += patterns('books.views', 
 	url(r'^publishers1/$', ListView.as_view(),publisher_info),
-	#url(r'^publishers3/$', ListView.as_view(publisher_info,)),
 	url(r'^publishers/$', ListView.as_view(model=Publisher,)),
 	url(r'^publishers2/$', ListView.as_view(
 		queryset = Publisher.objects.all(),
@@ -61,15 +61,4 @@ urlpatterns += patterns('books.views',
 	url(r'^books1/(\w+)/$', BookByPublisherListView.as_view(), name='books_by_publisher.html'),
 	url(r'^datebooks/$', BookListView.as_view()),
 )
-
-		
-    # Examples:
-    # url(r'^$', 'booksite.views.home', name='home'),
-    # url(r'^booksite/', include('booksite.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
 

@@ -1,10 +1,17 @@
 # Django settings for booksite project.
+import socket
+"""
+if socket.gethostname() == 'Taiowas-MacBook-Pro.local':
+	DEBUG = TEMPLATE_DEBUG = True
+else:
+	DEBUG = TEMPLATE_DEBUG = False """
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
+    ('Taiowa Waner', 'taiowawaner@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -115,6 +122,8 @@ TEMPLATE_DIRS = (
 	'/Users/taiowawaner/Documents/test_django/booksite/templates/contact',
 	'/Users/taiowawaner/Documents/test_django/booksite/templates/base',
 	'/Users/taiowawaner/Documents/test_django/booksite/templates/books',
+	'/Users/taiowawaner/Documents/test_django/booksite/templates/404',
+	'/Users/taiowawaner/Documents/test_django/booksite/templates/images',
 	# dynamic paths
 	# os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".

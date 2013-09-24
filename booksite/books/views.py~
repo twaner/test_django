@@ -43,17 +43,6 @@ class BookListView(ListView):
 		response =  HttpResponse('')
 		response['Last-Modified']  = last_book.publication_date.strftime('%a, %d %b %Y %H:%M:%S GMT')
 		return response
-	
-class BookFileListView(ListView):
-	model = Book
-	def worker(self, *args, **kwargs):
-		queryset = Book.objects.all()
-		template_name = 'books/author_list.txt'
-		
-		
-		
-		response = HttpResponse(my_data, content_type='application/vnd.ms-excel')
->>> response['Content-Disposition'] = 'attachment; filename="foo.xls"'
 
 # Complex filtering with wrapper function
 def books_by_publisher(request,name):
