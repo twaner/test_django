@@ -21,8 +21,9 @@ urlpatterns = patterns('booksite.views',
 	url(r'^hours/plus/(?P<offset>\d{1,2})/$', 'hours_ahead'),
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^display-meta/','display_meta'),
-	url(r'^image/', 'my_image')
+	url(r'^image/', 'my_image'),
 )
+
 urlpatterns += patterns('books.views', 
 	url(r'^search-form/$', 'search_form'),
 	url(r'^search/$', 'search'),

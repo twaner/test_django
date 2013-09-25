@@ -21,8 +21,9 @@ urlpatterns = patterns('booksite.views',
 	url(r'^hours/plus/(?P<offset>\d{1,2})/$', 'hours_ahead'),
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^display-meta/','display_meta'),
-	url(r'^image/', 'my_image')
+	url(r'^image/', 'my_image'),
 )
+
 urlpatterns += patterns('books.views', 
 	url(r'^search-form/$', 'search_form'),
 	url(r'^search/$', 'search'),
@@ -61,16 +62,4 @@ urlpatterns += patterns('books.views',
 	url(r'^books1/(\w+)/$', BookByPublisherListView.as_view(), name='books_by_publisher.html'),
 	url(r'^datebooks/$', BookListView.as_view()),
 )
-
-
-		
-    # Examples:
-    # url(r'^$', 'booksite.views.home', name='home'),
-    # url(r'^booksite/', include('booksite.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
-
+"""

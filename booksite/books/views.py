@@ -22,7 +22,7 @@ def search(request):
 			{'books': books, 'query': q}))
 	return(render(request, 'search_form.html', 
 	{'errors': errors}))
-		
+
 def about_pages(request, page):
 	try:
 		return(render(request,"about/%s.html" %page))
@@ -56,7 +56,7 @@ def books_by_publisher(request,name):
 		template_object_name = 'book',
 		extra_context = {'publisher': publisher}
 	))
-	
+
 class BookByPublisherListView(ListView):
 	publisher = get_object_or_404(Publisher,name__iexact='name')
 	template_name = 'books/books_by_publisher.html',
