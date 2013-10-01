@@ -1,4 +1,5 @@
 from django.db import models
+from contact.models import Contact_Information
 
 class Publisher(models.Model):
 	name = models.CharField(max_length=30)
@@ -7,6 +8,7 @@ class Publisher(models.Model):
 	state_province = models.CharField(max_length=30)
 	country = models.CharField(max_length=50)
 	website = models.URLField()
+	contact_information = models.ForeignKey(Contact_Information)
 	
 	def __unicode__(self):
 		return self.name
@@ -46,3 +48,10 @@ class Book(models.Model):
 	
 	def __unicode__(self):
 		return self.title
+		
+class HorrorBook(Book):
+	how_scary = models.CharField(max_length=20)
+	
+class TerrorBook(HorrorBook):
+	test = models.CharField(max_length=10)
+	
