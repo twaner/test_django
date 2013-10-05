@@ -1,5 +1,5 @@
 from django.db import models
-from booksite.contact.models import Contact_Information
+#from contact.models import Contact_Information
 
 class Publisher(models.Model):
 	name = models.CharField(max_length=30)
@@ -8,7 +8,7 @@ class Publisher(models.Model):
 	state_province = models.CharField(max_length=30)
 	country = models.CharField(max_length=50)
 	website = models.URLField()
-	contact_information = models.ForeignKey(Contact_Information)
+	#contact_information = models.ForeignKey(Contact_Information)
 	
 	def __unicode__(self):
 		return self.name
@@ -54,4 +54,15 @@ class HorrorBook(Book):
 	
 class TerrorBook(HorrorBook):
 	test = models.CharField(max_length=10)
+	
+class Person(models.Model):
+	name_f = models.CharField(max_length=20)
+	name_l = models.CharField(max_length=20)
+	sex = models.CharField(max_length=1)
+	
+	class Meta:
+		abstract = True
+		
+class GhostWriter(Person):
+	num_books = models.IntegerField(max_length=10)
 	

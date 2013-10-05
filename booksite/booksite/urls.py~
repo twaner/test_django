@@ -36,7 +36,7 @@ urlpatterns += patterns('contact.views',
 )
 
 publisher_info= {
-	'queryset': Publisher.objects.all(),
+	#'queryset': Publisher.objects.all(),
 	'template_name': 'publisher_list.html',
 	'template_object_name': 'publisher'
 }
@@ -62,4 +62,4 @@ urlpatterns += patterns('books.views',
 	url(r'^books1/(\w+)/$', BookByPublisherListView.as_view(), name='books_by_publisher.html'),
 	url(r'^datebooks/$', BookListView.as_view()),
 )
-"""
+

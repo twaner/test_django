@@ -1,5 +1,5 @@
 from django.db import models
-from contact.models import Contact_Information
+#from contact.models import Contact_Information
 
 class Publisher(models.Model):
 	name = models.CharField(max_length=30)
@@ -8,7 +8,7 @@ class Publisher(models.Model):
 	state_province = models.CharField(max_length=30)
 	country = models.CharField(max_length=50)
 	website = models.URLField()
-	contact_information = models.ForeignKey(Contact_Information)
+	#contact_information = models.ForeignKey(Contact_Information)
 	
 	def __unicode__(self):
 		return self.name
